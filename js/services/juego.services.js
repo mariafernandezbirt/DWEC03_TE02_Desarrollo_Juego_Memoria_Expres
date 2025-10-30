@@ -2,6 +2,10 @@
 import { USUARIOS_DB } from "../data/juego.data.js";
 import { Usuarios } from "../models/juego.model.js";
 
+// Detectar si estamos en GitHub Pages o en local
+const BASE_URL = window.location.hostname.includes("github.io")
+  ? "https://mariafernandezbirt.github.io/DWEC03_TE02_Desarrollo_Juego_Memoria_Expres/"
+  : "../";
 
 // Función para almacenar los usuarios en localStorage
 function almacenarUsuarios() {
@@ -45,7 +49,8 @@ function loginUsuarios(usuario, contra) {
 
     // Solo se ejecuta una vez, cuando acaba el for
     if (usuarioCorrecto) {
-        window.location.href = "../paginas/bienvenida.html";
+        //window.location.href = "../paginas/bienvenida.html";
+        window.location.href = BASE_URL + "paginas/bienvenida.html";
     } else {
         alert("Usuario o contraseña incorrectos");
     }
@@ -67,7 +72,8 @@ function checkLogin(spanId) {
 
     // Si no hay usuario logueado → redirigimos al login
     if (!idUsuario) {
-        window.location.href = "../index.html";
+        //window.location.href = "../index.html";
+        window.location.href = BASE_URL + "index.html";
         return null;
     }
 
@@ -91,7 +97,9 @@ btncomenzar.click(function(event){
     // var dificultad = document.querySelector('input[name="dificultad"]:checked').value;
     var dificultad = $('input[name="dificultad"]:checked').val();
     localStorage.setItem("dificultadElegida", dificultad);   
-    window.location.href = "../paginas/juego.html";
+    //window.location.href = "../paginas/juego.html";
+    window.location.href = BASE_URL + "paginas/juego.html";
+
 })
 
 // Función para guardar y mostrar nivel de juego
@@ -127,12 +135,15 @@ function mostrarResultados(resultadoSpanId, nombreSpanId, nivelSpanId, movimient
   if(tiempoSpan) tiempoSpan.textContent = resultadoJuego.tiempoRestante;
 
     document.getElementById("btn-reiniciar")?.addEventListener("click", () => {
-      window.location.href = "../paginas/bienvenida.html";
+      //window.location.href = "../paginas/bienvenida.html";
+      window.location.href = BASE_URL + "paginas/bienvenida.html";
+
     });
 
     document.getElementById("btn-salir")?.addEventListener("click", () => {
       localStorage.clear();
-      window.location.href = "../index.html";
+      //window.location.href = "../index.html";
+      window.location.href = BASE_URL + "index.html";
     });
 }
 

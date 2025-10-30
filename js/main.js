@@ -2,6 +2,7 @@
 
 console.log("Fichero main.js cargado correctamente");
 
+
 // Importamos las contastes / variables de los otros archivos que necesitemos usar
 import { JuegoService } from "./services/juego.services.js";
 import { iniciarJuego } from "./services/juego.js";

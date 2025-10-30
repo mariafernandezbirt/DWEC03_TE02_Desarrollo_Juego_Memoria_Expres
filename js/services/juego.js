@@ -1,5 +1,10 @@
 'use strict';
 
+// Detectar si estamos en GitHub Pages o en local
+const BASE_URL = window.location.hostname.includes("github.io")
+  ? "https://mariafernandezbirt.github.io/DWEC03_TE02_Desarrollo_Juego_Memoria_Expres/"
+  : "../";
+
 // Función principal para iniciar el juego
 export function iniciarJuego(dificultad) {
     const tablero = document.getElementById("tablero");
@@ -149,7 +154,8 @@ export function iniciarJuego(dificultad) {
         }));
 
             // Redirigir a página de resultados
-            window.location.href = "../paginas/resultados.html";
+            //window.location.href = "../paginas/resultados.html";
+            window.location.href = BASE_URL + "paginas/resultados.html";
     }
 }
 
